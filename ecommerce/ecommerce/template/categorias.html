@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}CATEGORÍAS{% endblock %}
+
+{% block content %}
+<section class="categories-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static '/Categorias/empanadas.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Empanadas</h5>
+                        <p class="card-text">Las famosas empanadas chilenas, rellenas de diferentes ingredientes y sabores.</p>
+                        <a href="{% url 'empanadas' %}" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static '/Categorias/asado.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Asados</h5>
+                        <p class="card-text">El tradicional asado chileno, con su carne a la parrilla y sabores únicos.</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static '/Categorias/cazuela.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Cazuelas</h5>
+                        <p class="card-text">Deliciosas cazuelas chilenas, con sus variadas combinaciones de ingredientes.</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

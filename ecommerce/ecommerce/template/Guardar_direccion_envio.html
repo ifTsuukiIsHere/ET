@@ -1,0 +1,67 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}REALIZAR PEDIDO{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Realizar Pedido</h1>
+</div>
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <p class="lead text-center mb-4">Por favor, complete el siguiente formulario para realizar su pedido:</p>
+                <form action="/" method="POST" id="formulario-contacto">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombres" placeholder="Ingrese su nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Dirección de entrega</label>
+                        <input type="text" class="form-control" id="direccion" placeholder="Ingrese su dirección">
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">Correo electrónico</label>
+                        <input type="tel" class="form-control" id="correo-electronico" placeholder="Ingrese su Correo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono de contacto</label>
+                        <input type="tel" class="form-control" id="numero-telefono" placeholder="Ingrese su teléfono">
+                    </div>
+                    <div class="mb-3">
+                        <label for="detalles-envio">Detalles del Envío</label>
+                        <input type="text" class="form-control" id="detalles-envio" name="detalles-envio" placeholder="Ingrese detalles de la dirección.">
+                    </div>
+                    <div id="distritos-container" class="mb-3"></div>
+                    <div class="my-3">
+                        <label for="distritos" class="form-label">Distrito</label>
+                        <select id="distritos" class="form-select" required>
+                            <option value="">Seleccione un distrito</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary my-3" type="button" onclick="enviarPedido()">ENVIAR PEDIDO</button>
+                    <div id="message-error" class="my-3 alert alert-danger alert-dismissible fade" role="alert">
+                        <div id="message">&nbsp;</div>
+                        </button>
+                    </div>            
+                </form>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-6 mx-auto">
+                    <h3 class="text-center">Instrucciones para realizar el pedido:</h3>
+                    <p class="lead text-center mt-3">Por favor, complete el formulario con su nombre, dirección, correo, teléfono y El detalle de la dirección. Una vez enviado el formulario, nuestro equipo procesará su pedido y se comunicará con usted para confirmarlo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{% static 'assets/js/formulario.js' %}"></script>
+    <script src="{% static 'assets/js/integracion-owo.js' %}"></script>
+    <script>
+        window.onload = function () {
+            listarDistritos();
+        }
+    </script>
+{% endblock %}
