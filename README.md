@@ -178,4 +178,12 @@ Para desplegar la aplicación web ejecutamos el siguiente comando.
 python manage.py runserver
 ```
 
+Iniciar sesion Admin.
+
+```shell
+User:Admin@
+E-mail:Admin@gmail.com
+Password:Admin123
+```
+
 Para visualizar el sitio deberemos hacerlo en la ruta [http://localhost:8000](http://localhost:8000)
