@@ -15,9 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from django.contrib.auth import views as auth_views
-from ecommerce.views import index, categorias, contacto, empanadas, Guardar_direccion_envio, pago
+from ecommerce.views import index, categorias, contacto, empanadas, Guardar_direccion_envio, pago, main
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +27,11 @@ urlpatterns = [
     path('empanadas/', empanadas.empanadas, name='empanadas'),
     path('guardar_direccion_envio/', Guardar_direccion_envio.guardar_direccion_envio, name='guardar_direccion_envio'),
     path('pago/', pago.pago, name='pago'),
-    path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
-    path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('accounts/login/', auth_views.LoginView.as_view(template_name='admin/login.html'), name='login'),
+    path('accounts/logout/', auth_views.LogoutView.as_view(next_page='main'), name='logout'),
+    path('main/', main.main, name='main'),
 ]
+
+
+
+
