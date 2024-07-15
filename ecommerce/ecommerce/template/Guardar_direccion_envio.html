@@ -12,27 +12,27 @@
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <p class="lead text-center mb-4">Por favor, complete el siguiente formulario para realizar su pedido:</p>
-                <form action="/" method="POST" id="formulario-contacto">
+                <form action="/guardar_direccion_envio/" method="POST" id="formulario-contacto">
                     {% csrf_token %}
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombres" placeholder="Ingrese su nombre">
+                        <input type="text" class="form-control" id="nombres" name="nombre" placeholder="Ingrese su nombre" required>
                     </div>
                     <div class="mb-3">
                         <label for="direccion" class="form-label">Dirección de entrega</label>
-                        <input type="text" class="form-control" id="direccion" placeholder="Ingrese su dirección">
+                        <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingrese su dirección" required>
                     </div>
                     <div class="mb-3">
                         <label for="correo" class="form-label">Correo electrónico</label>
-                        <input type="tel" class="form-control" id="correo-electronico" placeholder="Ingrese su Correo">
+                        <input type="email" class="form-control" id="correo-electronico" name="correo_electronico" placeholder="Ingrese su Correo" required>
                     </div>
                     <div class="mb-3">
                         <label for="telefono" class="form-label">Teléfono de contacto</label>
-                        <input type="tel" class="form-control" id="numero-telefono" placeholder="Ingrese su teléfono">
+                        <input type="tel" class="form-control" id="numero-telefono" name="numero_telefono" placeholder="Ingrese su teléfono" required>
                     </div>
                     <div class="mb-3">
                         <label for="detalles-envio">Detalles del Envío</label>
-                        <input type="text" class="form-control" id="detalles-envio" name="detalles-envio" placeholder="Ingrese detalles de la dirección.">
+                        <input type="text" class="form-control" id="detalles-envio" name="detalles_envio" placeholder="Ingrese detalles de la dirección.">
                     </div>
                     <div id="distritos-container" class="mb-3"></div>
                     <div class="my-3">
@@ -41,10 +41,9 @@
                             <option value="">Seleccione un distrito</option>
                         </select>
                     </div>
-                    <button class="btn btn-primary my-3" type="button" onclick="enviarPedido()">ENVIAR PEDIDO</button>
+                    <button class="btn btn-primary my-3" type="submit">ENVIAR PEDIDO</button>
                     <div id="message-error" class="my-3 alert alert-danger alert-dismissible fade" role="alert">
                         <div id="message">&nbsp;</div>
-                        </button>
                     </div>            
                 </form>
             </div>
@@ -55,13 +54,14 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <script src="{% static 'assets/js/formulario.js' %}"></script>
-    <script src="{% static 'assets/js/integracion-owo.js' %}"></script>
-    <script>
-        window.onload = function () {
-            listarDistritos();
-        }
-    </script>
+<script src="{% static 'assets/js/formulario.js' %}"></script>
+<script src="{% static 'assets/js/integracion-owo.js' %}"></script>
+<script>
+    window.onload = function () {
+        listarDistritos();
+    }
+</script>
 {% endblock %}

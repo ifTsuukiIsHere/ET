@@ -1,5 +1,5 @@
 async function listarDistritos() {
-    const url = ".\ecommerce\ecommerce\static\json\distritos.json"; 
+    const url = ".\\ecommerce\\ecommerce\\static\\json\\distritos.json"; 
     const method = 'GET';
     
     console.log('CALL SERVICE: ', url);
@@ -7,7 +7,7 @@ async function listarDistritos() {
     const resp = await fetch(url, {
         method: method,
     }).then((response) => {
-        console.log(`response: ${response.status}`)
+        console.log(`response: ${response.status}`);
         
         if (response.status == 200) {
             console.log('RESPUESTA CORRECTA.');

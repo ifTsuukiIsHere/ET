@@ -1,6 +1,6 @@
 console.log('LOAD LIB FORMULARIO-CONTACTO');
-function enviarPedido(){
-    try{
+function enviarPedido() {
+    try {
         let messageError = "";
         let nombres = document.getElementById('nombres').value;
         console.log('NOMBRES: ' + nombres);
@@ -13,22 +13,22 @@ function enviarPedido(){
         let detallesEnvio = document.getElementById('detalles-envio').value;
         console.log('DETALLES DEL ENVIO: ' + detallesEnvio);
 
-        if(nombres === "" || direccion === "" || correoElectronico === "" || numeroTelefono === "" || detallesEnvio === ""){
+        if (nombres === "" || direccion === "" || correoElectronico === "" || numeroTelefono === "" || detallesEnvio === "") {
             console.log('Campo vacío.');
             messageError = `${messageError} Rellene los campos vacíos.`;
             console.log(`messageError: ${messageError}`);
         }
-  
+
         let messageElement = document.getElementById('message-error');
         let messageTextElement = document.getElementById('message');
         
-        if(messageError === ""){
+        if (messageError === "") {
             messageElement.classList.add('show');
             messageElement.classList.remove('alert-danger');
             messageElement.classList.add('alert-success');
             messageTextElement.innerHTML = 'Datos almacenados.';
-            window.location.href = 'pago.html';
-        }else{
+            window.location.href = '/pago/';  // Redirigir a la página de pago
+        } else {
             messageElement.classList.add('show');
             messageElement.classList.remove('alert-success');
             messageElement.classList.add('alert-danger');
@@ -36,7 +36,7 @@ function enviarPedido(){
         }
         
         console.log('messageError: ' + messageError);
-    }catch(e){
+    } catch (e) {
         console.log("Error", e.stack);
         console.log("Error", e.name);
         console.log("Error", e.message);
