@@ -1,11 +1,12 @@
+// ecommerce/static/js/carrito.js
 document.addEventListener('DOMContentLoaded', function () {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     const contadorCarrito = document.getElementById('contador-carrito');
     const itemsCarrito = document.getElementById('items-carrito');
     const totalCarrito = document.getElementById('total-carrito');
     const botonVaciarCarrito = document.getElementById('vaciar-carrito');
-    const botonFinalizarCompra = document.querySelector('.finalizar-compra'); 
-    
+    const botonFinalizarCompra = document.getElementById('finalizar-compra'); 
+    const urlFinalizarCompra = botonFinalizarCompra ? botonFinalizarCompra.getAttribute('data-url') : '';  
     function actualizarCarrito() {
         localStorage.setItem('carrito', JSON.stringify(carrito));
         contadorCarrito.textContent = carrito.reduce((total, item) => total + item.cantidad, 0);
@@ -45,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (botonFinalizarCompra) {
         botonFinalizarCompra.addEventListener('click', function () {
-            window.location.href = 'Guardar_direccion_envio.html';
+            window.location.href = urlFinalizarCompra;  
         });
     }
 

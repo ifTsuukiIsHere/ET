@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <p class="lead text-center mb-4">Por favor, complete el siguiente formulario para realizar su pedido:</p>
-                <form action="/guardar_direccion_envio/" method="POST" id="formulario-contacto">
+                <form action="{% url 'guardar_direccion_envio' %}" method="POST" id="formulario-contacto">
                     {% csrf_token %}
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
@@ -34,7 +34,7 @@
                         <label for="detalles-envio">Detalles del Envío</label>
                         <input type="text" class="form-control" id="detalles-envio" name="detalles_envio" placeholder="Ingrese detalles de la dirección.">
                     </div>
-                    <div id="distritos-container" class="mb-3"></div>
+                    <div id="distritos" class="mb-3"></div>
                     <div class="my-3">
                         <label for="distritos" class="form-label">Distrito</label>
                         <select id="distritos" class="form-select" required>
@@ -57,8 +57,8 @@
     </div>
 </section>
 
-<script src="{% static 'assets/js/formulario.js' %}"></script>
-<script src="{% static 'assets/js/integracion-owo.js' %}"></script>
+<script src="{% static 'js/formulario.js' %}"></script>
+<script src="{% static 'js/integracion-owo.js' %}"></script>
 <script>
     window.onload = function () {
         listarDistritos();

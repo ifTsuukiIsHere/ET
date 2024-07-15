@@ -1,5 +1,5 @@
 async function listarDistritos() {
-    const url = ".\\ecommerce\\ecommerce\\static\\json\\distritos.json"; 
+    const url = "/static/json/distritos.json"; 
     const method = 'GET';
     
     console.log('CALL SERVICE: ', url);
@@ -23,7 +23,7 @@ async function listarDistritos() {
         for (let i = 0; i < data.distritos.length; i++) {
             console.log(`distrito: ${data.distritos[i].nombre}`);
             let nombre = data.distritos[i].nombre;
-            selectOneDistrito += `<option value="${i}">${nombre}</option>`;
+            selectOneDistrito += `<option value="${nombre}">${nombre}</option>`;
         }
         selectOneDistrito += `</select>`;
         

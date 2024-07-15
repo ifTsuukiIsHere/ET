@@ -28,11 +28,9 @@ urlpatterns = [
     path('guardar_direccion_envio/', Guardar_direccion_envio.guardar_direccion_envio, name='guardar_direccion_envio'),
     path('pago/', pago.pago, name='pago'),
     path('accounts/login/', auth_views.LoginView.as_view(template_name='admin/login.html'), name='login'),
-    path('accounts/logout/', auth_views.LogoutView.as_view(next_page='index'), name='logout'),
+    path('accounts/logout/', auth_views.LogoutView.as_view(next_page='main'), name='logout'),
     path('main/', main.main, name='main'),
 ]
-
-
 
 
 
