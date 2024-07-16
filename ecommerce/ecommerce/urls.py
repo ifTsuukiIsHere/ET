@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from ecommerce.views import index, categorias, contacto, empanadas, Guardar_direccion_envio, pago, main
-
+import ecommerce.db.admin
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index.index, name='index'),
